@@ -5,8 +5,8 @@ class AddTodo extends Component {
   render() {
     return (
       <div className="add-todo">
-        <input type="input" class="add-todo_input"/>
-        <button class="add-todo_submit">add</button>
+        <input type="input" className="add-todo_input"/>
+        <button className="add-todo_submit">add</button>
       </div>
     );
   }

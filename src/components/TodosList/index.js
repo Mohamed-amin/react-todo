@@ -4,37 +4,17 @@ import './styles.css';
 class TodosList extends Component {
   render() {
     return (
-      <ul class="todo-list">
-        <li class="todo">
-          <input type="checkbox" class="todo_check" />
-          <span>Todo 1 </span>
-          <div class="todo_actions">
-            <a href="#" class="remove">remove</a>
-          </div>
-        </li>
-        <li class="todo">
-          <input type="checkbox" class="todo_check" />
-          <span>Todo 1 </span>
-          <div class="todo_actions">
-            <a href="#" class="remove">remove</a>
-          </div>
-        </li>
-        <li class="todo">
-          <input type="checkbox" class="todo_check" />
-          <span>Todo 1 </span>
-          <div class="todo_actions">
-            <a href="#" class="remove">remove</a>
-          </div>
-        </li>
-
-        <li class="todo">
-          <input type="checkbox" class="todo_check" />
-          <span>Todo 1 </span>
-          <div class="todo_actions">
-            <a href="#" class="remove">remove</a>
-          </div>
-        </li>
-
+      <ul className="todo-list">
+        { this.props.todos.map( ({value, ts, status}) =>
+            <li className="todo" key={ts}>
+              <input type="checkbox" className="todo_check" defaultChecked={status}/>
+              <span className="todo_content">{value} {ts} </span>
+              <div className="todo_actions">
+                <button className="remove" onClick={ e => this.props.remove(ts) }>remove</button>
+              </div>
+            </li>
+          )
+        }
       </ul>
     );
   }

@@ -4,6 +4,17 @@ import './App.css';
 import TodosList from './components/TodosList';
 import AddTodo from './components/AddTodo';
 class App extends Component {
+  state = {
+    todos : [
+      { value: 'Todo 1 whats up!', status: true, ts: 1312312312},
+      { value: 'Todo 1 whats up!', status: true, ts: 1312312314},
+    ]
+  }
+  remove = (ts) => {
+    const todos = this.state.todos.filter(t => t.ts !== ts)
+    console.log(ts, todos)
+    this.setState(() => ({ todos }));
+  }
   render() {
     return (
       <div className="App">
@@ -11,9 +22,12 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">TO-DO App</h1>
         </header>
-        <section class="App-content card">
+        <section className="App-content card">
           <AddTodo />
-          <TodosList />
+          <TodosList
+            todos={this.state.todos}
+            remove={this.remove}
+          />
         </section>
       </div>
     );

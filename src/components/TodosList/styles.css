@@ -11,6 +11,11 @@
 .todo_check{
   margin-right: 10px;
 }
+.todo_check:checked + .todo_content{
+  text-decoration: line-through;
+  font-style: italic;
+  color: #ccc;
+}
 .todo_actions{
   margin-left: auto;
 }
