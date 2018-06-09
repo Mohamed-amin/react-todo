@@ -20,7 +20,7 @@ class AddTodo extends Component {
   render() {
     return (
       <div className="add-todo">
-        <input type="input" value={this.state.todoValue} className="add-todo_input" onChange={this.onChange}/>
+        <input type="input" value={this.state.todoValue} className="add-todo_input" onChange={this.onChange} autoFocus={true}/>
         <button className="add-todo_submit" onClick={this.onAdd} >add</button>
       </div>
     );

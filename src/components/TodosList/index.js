@@ -10,7 +10,7 @@ class TodosList extends Component {
               <input type="checkbox" className="todo_check" defaultChecked={status}/>
               <span className="todo_content">{value} </span>
               <div className="todo_actions">
-                <button className="remove" onClick={ e => this.props.remove(ts) }>remove</button>
+                <button className="remove" onClick={ e => this.props.remove(ts) }>delete</button>
               </div>
             </li>
           )
