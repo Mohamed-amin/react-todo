@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import 'typeface-roboto'
 import './App.css';
-
+import TodosList from './components/TodosList';
+import AddTodo from './components/AddTodo';
 class App extends Component {
   render() {
     return (
@@ -11,23 +11,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">TO-DO App</h1>
         </header>
-        <section>
-          <textarea></textarea>
-          <button>add</button>
-        </section>
-        <section>
-          <ul>
-            <li>
-              <input type="checkbox" />
-              <span>Todo 1 </span>
-              <div>
-                <a class="remove">remove</a>
-              </div>
-            </li>
-            <li> Todo 2</li>
-            <li> Todo 3</li>
-            <li> Todo 4</li>
-          </ul>
+        <section class="App-content card">
+          <AddTodo />
+          <TodosList />
         </section>
       </div>
     );
