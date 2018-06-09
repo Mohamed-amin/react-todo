@@ -5,15 +5,18 @@ import TodosList from './components/TodosList';
 import AddTodo from './components/AddTodo';
 class App extends Component {
   state = {
-    todos : [
-      { value: 'Todo 1 whats up!', status: true, ts: 1312312312},
-      { value: 'Todo 1 whats up!', status: true, ts: 1312312314},
-    ]
+    todos : []
   }
   remove = (ts) => {
     const todos = this.state.todos.filter(t => t.ts !== ts)
-    console.log(ts, todos)
     this.setState(() => ({ todos }));
+  }
+  add = (todo) => {
+    console.log({value: todo, ts: Date.now(), status: false })
+    this.setState( ()=> {
+        return { todos: [...this.state.todos, {value: todo, ts: Date.now(), status: false }]}
+      }
+    )
   }
   render() {
     return (
@@ -23,7 +26,7 @@ class App extends Component {
           <h1 className="App-title">TO-DO App</h1>
         </header>
         <section className="App-content card">
-          <AddTodo />
+          <AddTodo add={this.add} />
           <TodosList
             todos={this.state.todos}
             remove={this.remove}

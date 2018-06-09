@@ -8,7 +8,7 @@ class TodosList extends Component {
         { this.props.todos.map( ({value, ts, status}) =>
             <li className="todo" key={ts}>
               <input type="checkbox" className="todo_check" defaultChecked={status}/>
-              <span className="todo_content">{value} {ts} </span>
+              <span className="todo_content">{value} </span>
               <div className="todo_actions">
                 <button className="remove" onClick={ e => this.props.remove(ts) }>remove</button>
               </div>
